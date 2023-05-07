@@ -9,6 +9,7 @@
 body {
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
@@ -16,6 +17,7 @@ body {
         "resultados resultados resultados resultados"
         "filmes filmes filmes filmes"
         "filmes filmes filmes filmes"
+        "pages pages pages pages"
         " footer footer footer footer";
 
     gap: 2rem;
@@ -26,43 +28,44 @@ body {
 
 header {
     width: 100%;
+    padding: 1rem;
     grid-area: menu;
 
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(0, 0, 0);
-    padding: 1rem;
 
+    background-color: rgb(0, 0, 0);
     border-bottom: 1px solid rgb(148, 147, 147);
+
 }
 
 h1 {
+    padding: 0 .5rem;
+    
     font-size: clamp(3rem, 3.5vw, 4rem);
     color: rgba(229, 9, 20, 1);
     ;
 
-    padding: 0 .5rem;
-
     border-left: 1px solid rgb(148, 147, 147);
     border-right: 1px solid rgb(148, 147, 147);
+
 }
 
 .menu-navegação ul {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    justify-content: space-between;
+    gap: 2rem;
 
 }
 
 li {
-    line-break: anywhere;
-
     list-style: none;
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    
+    font-size: clamp(1rem, 2vw, 1.2rem);
     ;
-    font-weight: bold;
     color: rgba(183, 189, 154, 1);
 
 }
@@ -71,110 +74,131 @@ li:hover {
     transform: scale(1.1);
     color: white;
     cursor: pointer;
+
 }
 
 .resultados {
     grid-area: resultados;
     font-size: clamp(1rem, 5vw, 1.8rem);
+
 }
 
 .container {
+    padding: 0 1.5rem;
+
     grid-area: filmes;
 
     display: grid;
     grid-template-columns: repeat(5, auto);
     grid-template-rows: auto;
-
     align-items: center;
-    padding: 0 1.5rem;
+
 }
 
 .resultados {
     width: 100%;
     padding: 0 2rem;
+
     color: white;
+
 }
 
-img {
+.img-filmes {
     width: clamp(10rem, 19vw, 20rem);
     padding: .5rem;
-}
 
-.filmes {}
+}
 
 .card-filmes:hover {
     transition: 200ms;
-    transform: scale(1.3);
+    transform: scale(1.1);
     z-index: 1;
+
 }
 
 .card-filmes {
     position: relative;
 
-    width: 100%;
 }
 
 .description {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-
-    background-color: rgba(29, 29, 29, 0.911);
     width: 100%;
     height: 100%;
-    color: rgb(255, 255, 255);
-
+    padding: 0 1rem;
     position: absolute;
     top: 0;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    
+    background-color: rgba(29, 29, 29, 0.911);
+    
+    color: rgb(255, 255, 255);
+    text-align: center;
+    opacity: 0;
+
+}
+
+.description:hover {
+    transition: 200ms;
+    opacity: 1;
 
 }
 
 .rating {
-    font-size: 1rem;
+    font-size: clamp(1.2rem, 3vw, 1.2rem);
     padding: .4rem;
     position: absolute;
-    top: 5px;
+    top: 6px;
+    left: 4px;
 
 }
 
 .description img {
     position: absolute;
     top: 4px;
-    width: 35px;
+    left: 4px;
+
+    width: clamp(2.5rem, 6vw, 2.4rem);
 
 }
 
 .nome-filme {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+
 }
 
+.overview {
+    font-size: clamp(1.1rem, 1.5vw, .5rem);
+    text-align: justify;
+    
+    overflow: auto;
+    padding: .5rem;
 
-
-.resumo {
-    font-size: 1.3rem;
-    text-align: center;
 }
 
 .description span {
-
+    padding-top: 1rem;
+    
     font-size: 1rem;
     color: rgb(177, 177, 177);
+
 }
 
 
 .btnSinopse {
-    position: absolute;
-    bottom: 20px;
-
     width: 9rem;
     padding: .3rem;
+    margin-bottom: 1rem;
+    
     font-size: 1rem;
+    color: white;
+    
     border: none;
     border-radius: 4px;
-    color: white;
     background-color: rgba(84, 128, 247, 0.795);
 
 }
@@ -184,37 +208,60 @@ img {
 
 }
 
+.pages {
+    grid-area: pages;
+    
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.pageUp,
+.pageDown {
+    color: white;
+    border: none;
+    background-color: transparent;
+    padding: .3rem;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.pages span {
+    padding: .3rem 1rem;
+    border: 1px solid white;
+
+}
+
+.pages span,
+.pages button {
+    color: white;
+    font-size: 1.4rem;
+
+}
+
 footer {
+    grid-area: footer;
+
     border-top: 1px solid grey;
     padding: 1rem 0;
-    grid-area: footer;
+
     color: white;
     font-size: 1.1rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
     gap: 1rem;
 
 
-
 }
 
-footer a {
-    color: white;
-    text-decoration: none;
-
-    cursor: pointer;
-}
 
 footer img {
-    width: 30px;
-
-}
-
-.description-hidden {
-    display: none;
+    width: 55px;
 
 }
 
@@ -225,27 +272,30 @@ footer img {
     }
 
     .container {
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
     }
 
     header {
         justify-content: center;
     }
 
-    h1 {
-    }
-
     .menu-navegação {
         display: none;
     }
 
-      img{
-        width: 100%;
-      }
+    .description {
+        justify-content: space-between;
     }
+
+    .img-filmes {
+        width: 100%;
+    }
+}
 
 @media (max-width:425px) {
     .container {
         grid-template-columns: auto;
+
     }
+
 }
