@@ -3,16 +3,17 @@ export const cardFilmes = ({
     name: title,
     rating: vote_average,
     data: release_date,
-    description: overview
+    description: overview,
+    id: id
 }) => {
+
+    const urlTrailer = ''
 
     const ratingString = vote_average.toString();
     const rating = ratingString.padEnd(3, `.0`);
 
-    // overview = 'Testando!';
-
     const filmes = `
-    <div class="card-filmes">
+    <div class="card-filmes" id="${id}">
         <div class="filmes">
             <img class="img-filmes" src="https://image.tmdb.org/t/p/original${poster_path}" alt="imagem do(a) filme ${title}">
         </div>
@@ -24,10 +25,23 @@ export const cardFilmes = ({
 
             <p class="overview">${overview}</p>
 
-            <button class="btnSinopse">Sinopse</button>
+            <button class="btnTrailer">Trailer</button>
         </div>
-  </div>`;
+    </div>
+
+`;
 
     return filmes;
 
-}
+};
+
+export const trailerFilmes = () => {
+    let title = 'Trailer';
+    let id = 'trailer';
+
+    return `
+    <iframe></iframe>
+    <button class="btnClose">X</button>
+`;
+    
+};
