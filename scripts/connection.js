@@ -20,30 +20,4 @@ export const moviesTrailers = async (id) => {
 
   return await endpoint;
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const key = 'k_iykyg8yn';
-// export const connection = async () => {
-//   const url = `https://pokeapi.co/api/v2/pokemon/${1010}`;
-//   const endpoint = await fetch(url);
-//   const data = endpoint.json();
-
-//   return await data;
-
-// };
+};

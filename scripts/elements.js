@@ -41,6 +41,7 @@ export const trailerFilmes = () => {
 
     return `
     <iframe></iframe>
+    <h2 class="notTrailer notTrailerDisplayNone" ></h2>
     <button class="btnClose">X</button>
 `;
     
