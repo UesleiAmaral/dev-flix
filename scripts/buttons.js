@@ -1,4 +1,4 @@
-import { movies, moviesTrailers } from "./connection.js";
+import { connection, moviesTrailers } from "./connection.js";
 import { createElement } from "../main.js";
 import { trailerFilmes } from "./elements.js";
 
@@ -14,7 +14,7 @@ divTrailer.innerHTML = trailerFilmes();
 
 
 export const buttonsPage = {
-  filmes: await movies(page),
+  filmes: await connection(page, 'popular'),
 
   async buttonPlus() {
 
@@ -23,7 +23,7 @@ export const buttonsPage = {
       }
 
       page += 1;
-      this.filmes = await movies(page);
+      this.filmes = await connection(page, 'popular');
       createElement(this.filmes.results);
       elementHTML.numberPage.innerHTML = `${page}`;
 
@@ -37,7 +37,7 @@ export const buttonsPage = {
       };
 
       page -= 1;
-      this.filmes = await movies(page);
+      this.filmes = await connection(page, 'popular');
       createElement(this.filmes.results);
       elementHTML.numberPage.innerHTML = `${page}`;
 
@@ -45,7 +45,7 @@ export const buttonsPage = {
 
   async buttonFrist() {
       page = 1;
-      this.filmes = await movies(page);
+      this.filmes = await connection(page, 'popular');
       createElement(this.filmes.results);
       elementHTML.numberPage.innerHTML = `${page}`;
 
@@ -54,7 +54,7 @@ export const buttonsPage = {
   async buttonEnd() {
 
       page = 500;
-      this.filmes = await movies(page);
+      this.filmes = await connection(page, 'popular');
       createElement(this.filmes.results);
       elementHTML.numberPage.innerHTML = `${page}`;
 
@@ -74,16 +74,12 @@ export const buttonsPage = {
 
         const id = btn.parentNode.parentNode.id;
 
-        console.log(btn.parentNode.parentNode.id);
-
         const urlTrailer = await moviesTrailers(id);
         h2.innerHTML = '';
 
         try {
           trailerIframe.src = `https://www.youtube.com/embed/${urlTrailer.results[0].key}`;
           trailer.classList.add('open');
-
-
           
         } catch (error) {
           trailer.classList.add('open');
