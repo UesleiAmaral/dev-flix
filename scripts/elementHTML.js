@@ -6,17 +6,6 @@ export const elementHTML = {
     buttonPageFrist: document.querySelector('.pageFrist'),
     buttonPageEnd: document.querySelector('.pageEnd'),
     btnClose: document.querySelectorAll('.btnClose'),
-    
-
-
-
-
-
-
-
-
-
-
 
 
 

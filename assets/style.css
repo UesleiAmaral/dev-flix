@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+
 * {
     margin: 0;
     padding: 0;
+    font-size: 62.5%;
     box-sizing: border-box;
 }
 
 body {
     height: 100vh;
-    font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
 
     display: grid;
@@ -29,7 +30,7 @@ body {
 
 header {
     width: 100%;
-    padding: 1rem;
+    padding: 1.6rem;
     grid-area: menu;
 
     display: flex;
@@ -58,17 +59,21 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 4rem;
 
 }
 
-li {
+li{
     list-style: none;
 
-    font-size: clamp(1rem, 2vw, 1.2rem);
     ;
     color: rgba(183, 189, 154, 1);
+    
+}
 
+.search{
+    font-size: clamp(1rem, 2vw, 2rem);
+    
 }
 
 li:hover {
@@ -85,14 +90,16 @@ li:hover {
 }
 
 .container {
-    padding: 0 1.5rem;
+    padding: 0 1.6rem;
 
     grid-area: filmes;
 
     display: grid;
-    grid-template-columns: repeat(5, clamp(10rem, 19vw, 20rem));
+    grid-template-columns: repeat(5, clamp(10rem, 19vw, 30rem));
     grid-template-rows: auto;
     align-items: center;
+
+    justify-content: space-around;
 
 
 }
@@ -100,13 +107,19 @@ li:hover {
 .resultados {
     width: 100%;
     padding: 0 2rem;
-
+    font-size: 2.6rem;
+    
     color: white;
+    
+}
+
+.resultados span{
+    font-size: 2.2rem;
 
 }
 
 .img-filmes {
-    width: clamp(10rem, 19vw, 20rem);
+    width: clamp(10rem, 19vw, 30rem);
     padding: .5rem;
 
 }
@@ -120,7 +133,7 @@ li:hover {
 
 .card-filmes {
     position: relative;
-    width: clamp(10rem, 19vw, 20rem);
+    width: clamp(10rem, 19vw, 30rem);
 
 }
 
@@ -152,11 +165,11 @@ li:hover {
 }
 
 .rating {
-    font-size: clamp(1.2rem, 3vw, 1.2rem);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
     padding: .4rem;
     position: absolute;
-    top: 6px;
-    left: 4px;
+    top: 7px;
+    left: 6px;
 
 }
 
@@ -165,17 +178,17 @@ li:hover {
     top: 4px;
     left: 4px;
 
-    width: clamp(2.5rem, 6vw, 2.4rem);
+    width: clamp(2.5rem, 6vw, 3.4rem);
 
 }
 
 .nome-filme {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 
 }
 
 .overview {
-    font-size: clamp(1.1rem, 1.5vw, .5rem);
+    font-size: clamp(1.6rem, 1.5vw, 1.4rem);
     text-align: justify;
 
     overflow: auto;
@@ -186,18 +199,18 @@ li:hover {
 .description span {
     padding-top: 1rem;
 
-    font-size: 1rem;
+    font-size: 1.6rem;
     color: rgb(177, 177, 177);
 
 }
 
 
 .btnTrailer {
-    width: 9rem;
-    padding: .3rem;
+    width: 19rem;
+    padding: 1rem;
     margin-bottom: 1rem;
 
-    font-size: 1rem;
+    font-size: 1.6rem;
     color: white;
 
     border: none;
@@ -248,14 +261,14 @@ iframe {
 }
 
 .btnClose {
-    font-size: 2rem;
+    font-size: 3rem;
     background-color: transparent;
     color: wheat;
     border: none;
 
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 2rem;
+    right: 2rem;
     cursor: pointer;
 
 }
@@ -275,7 +288,7 @@ iframe {
     color: white;
     border: none;
     background-color: transparent;
-    padding: .3rem;
+    padding: .6rem;
     font-weight: bold;
     cursor: pointer;
 
@@ -295,7 +308,7 @@ iframe {
 .pages span,
 .pages button {
     color: white;
-    font-size: 1.4rem;
+    font-size: 2rem;
 
 }
 
@@ -305,12 +318,10 @@ footer {
     padding: 1rem 0;
 
     color: white;
-    font-size: 1.1rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 
 
 }
@@ -326,7 +337,7 @@ footer img {
     width: 100%;
     text-align: center;
     color: white;
-    font-size: 2.1rem;
+    font-size: 3rem;
     
 }
 

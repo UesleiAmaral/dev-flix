@@ -21,3 +21,43 @@ export const moviesTrailers = async (id) => {
   return await endpoint;
 
 };
+
+
+export const nowPlaying = async (page) => {
+
+  const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=${page}`;
+
+  const endpoint = fetch(url)
+  .then(response => response.json())
+  .then(response => {return response})
+  .catch(err => console.error(err));
+
+  return await endpoint;
+
+};
+
+export const upcoming = async (page) => {
+
+  const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=${page}`;
+
+  const endpoint = fetch(url)
+  .then(response => response.json())
+  .then(response => {return response})
+  .catch(err => console.error(err));
+
+  return await endpoint;
+
+};
+
+export const topRated = async (page) => {
+
+  const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${key}&language=en-US&page=${page}`;
+
+  const endpoint = fetch(url)
+  .then(response => response.json())
+  .then(response => {return response})
+  .catch(err => console.error(err));
+
+  return await endpoint;
+
+};

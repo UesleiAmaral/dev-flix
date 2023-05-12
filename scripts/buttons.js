@@ -16,26 +16,20 @@ divTrailer.innerHTML = trailerFilmes();
 export const buttonsPage = {
   filmes: await movies(page),
 
-  buttonPlus() {
-    elementHTML.buttonPagePlus.addEventListener('click', async (e) => {
+  async buttonPlus() {
 
       if (page == 500) {
         return;
       }
 
-      e.preventDefault();
       page += 1;
       this.filmes = await movies(page);
       createElement(this.filmes.results);
       elementHTML.numberPage.innerHTML = `${page}`;
 
-    });
   },
 
-  buttonLess() {
-    elementHTML.buttonPageLess.addEventListener('click', async (e) => {
-
-      e.preventDefault();
+  async buttonLess() {
 
       if (page <= 1) {
         return;
@@ -47,34 +41,23 @@ export const buttonsPage = {
       createElement(this.filmes.results);
       elementHTML.numberPage.innerHTML = `${page}`;
 
-    });
-
   },
 
-  buttonFrist() {
-
-    elementHTML.buttonPageFrist.addEventListener('click', async (e) => {
-
-      e.preventDefault();
+  async buttonFrist() {
       page = 1;
       this.filmes = await movies(page);
       createElement(this.filmes.results);
       elementHTML.numberPage.innerHTML = `${page}`;
 
-    });
-
   },
 
-  buttonEnd() {
-    elementHTML.buttonPageEnd.addEventListener('click', async (e) => {
+  async buttonEnd() {
 
-      e.preventDefault();
       page = 500;
       this.filmes = await movies(page);
       createElement(this.filmes.results);
       elementHTML.numberPage.innerHTML = `${page}`;
 
-    })
 
   },
 
@@ -82,7 +65,6 @@ export const buttonsPage = {
     const btnTrailer = document.querySelectorAll('.btnTrailer');
     const trailer = document.querySelector('.trailer');
     const trailerIframe = document.querySelector('iframe');
-
 
     btnTrailer.forEach((btn) => {
       const h2 = document.querySelector('.notTrailer');
@@ -92,6 +74,7 @@ export const buttonsPage = {
 
         const id = btn.parentNode.parentNode.id;
         const urlTrailer = await moviesTrailers(id);
+        h2.innerHTML = '';
 
         try {
           trailerIframe.src = `https://www.youtube.com/embed/${urlTrailer.results[0].key}`;
@@ -121,10 +104,8 @@ export const buttonsPage = {
 
       el.addEventListener('click', (e) => {
         e.preventDefault();
-        trailerIframe.src = '';
-        // h2.classList.add('notTrailerDisplayNone');
-
         trailer.classList.remove('open');
+        trailerIframe.src = '';        
 
       });
     });
