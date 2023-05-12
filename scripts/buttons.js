@@ -75,7 +75,7 @@ export const buttonsPage = {
         const id = btn.parentNode.parentNode.id;
 
         console.log(btn.parentNode.parentNode.id);
-        
+
         const urlTrailer = await moviesTrailers(id);
         h2.innerHTML = '';
 
@@ -83,6 +83,8 @@ export const buttonsPage = {
           trailerIframe.src = `https://www.youtube.com/embed/${urlTrailer.results[0].key}`;
           trailer.classList.add('open');
 
+
+          
         } catch (error) {
           trailer.classList.add('open');
           console.log(error);

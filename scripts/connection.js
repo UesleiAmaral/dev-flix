@@ -10,6 +10,8 @@ export const movies = async (page) => {
 
 };
 
+
+
 export const moviesTrailers = async (id) => {
 
   const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${key}&language=pt-BR&`;
