@@ -73,6 +73,9 @@ export const buttonsPage = {
         e.preventDefault();
 
         const id = btn.parentNode.parentNode.id;
+
+        console.log(btn.parentNode.parentNode.id);
+        
         const urlTrailer = await moviesTrailers(id);
         h2.innerHTML = '';
 

@@ -37,6 +37,74 @@ export const createElement = (element) => {
 
 // createElement(filmes.results);
 
+
+
+const menu = document.querySelectorAll('.search');
+const now_Playing = await nowPlaying();
+const upcomingMovies = await upcoming();
+const topRatedMovies = await topRated();
+
+const typeMovies = document.querySelector('.typeMovie');
+
+
+menu.forEach(element => {
+    console.log(element);
+
+    element.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (element.textContent == "Filmes Populares") {
+            typeMovies.textContent = "Filmes Populares";
+            createElement(filmes.results);
+            buttonsPage.buttonTrailer();
+            buttonsPage.buttonClose();
+
+
+
+
+        }
+        else if (element.textContent == "Em Cartaz") {
+            typeMovies.textContent = "Em Cartaz";
+            createElement(now_Playing.results);
+
+            buttonsPage.buttonTrailer();
+            buttonsPage.buttonClose();
+
+
+
+            console.log('Aqui');
+
+        }
+        else if (element.textContent == "Estreiam Em Breve") {
+            typeMovies.textContent = "Estreiam Em Breve";
+            createElement(upcomingMovies.results);
+
+            buttonsPage.buttonTrailer();
+            buttonsPage.buttonClose();
+
+
+
+        }
+
+        else if (element.textContent == "Mais Avaliados") {
+            typeMovies.textContent = "Mais Avaliados";
+            createElement(topRatedMovies.results);
+
+            buttonsPage.buttonTrailer();
+            buttonsPage.buttonClose();
+
+
+        }
+    });
+
+});
+
+
+// console.log(await topRated());
+
+createElement(filmes.results);
+
+
 elementHTML.buttonPagePlus.addEventListener('click', (e) => {
     e.preventDefault();
     buttonsPage.buttonPlus();
@@ -62,51 +130,3 @@ elementHTML.buttonPageEnd.addEventListener('click', (e) => {
 
 });
 
-
-buttonsPage.buttonTrailer();
-buttonsPage.buttonClose();
-
-
-
-
-const menu = document.querySelectorAll('.search');
-const now_Playing = await nowPlaying();
-const upcomingMovies = await upcoming();
-const topRatedMovies = await topRated();
-
-const typeMovies = document.querySelector('.typeMovie');
-
-
-menu.forEach(element => {
-    console.log(element);
-
-    element.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        if (element.textContent == "Filmes Populares") {
-            createElement(filmes.results);
-
-        }
-        else if (element.textContent == "Em Cartaz") {
-            typeMovies.textContent = "Em Cartaz";
-            createElement(now_Playing.results);
-
-            console.log('Aqui');
-
-        }
-        else if (element.textContent == "Estreiam Em Breve") {
-            typeMovies.textContent = "Estreiam Em Breve";
-            createElement(upcomingMovies.results);
-
-        }
-
-        else if(element.textContent == "Mais Avaliados"){
-            typeMovies.textContent = "Mais Avaliados";
-            createElement(topRatedMovies.results);
-        }
-    });
-
-});
-
-
-console.log(await topRated());
