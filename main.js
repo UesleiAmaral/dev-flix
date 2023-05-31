@@ -1,4 +1,4 @@
-import { elementHTML } from "./scripts/elementHtML.js";
+import { elementHTML } from "./scripts/elementHTML.js";
 import { buttonsPage } from "./scripts/buttons.js";
 import { connection } from "./scripts/connection.js";
 import { cardFilmes, trailerFilmes } from "./scripts/elements.js";
