@@ -2,7 +2,7 @@ import { connection, moviesTrailers } from "./connection.js";
 import { createElement } from "../main.js";
 import { trailerFilmes } from "./elements.js";
 
-import { elementHTML } from "./elementHtML.js";
+import { elementHTML } from "./elementHTML.js";
 
 let page = 1;
 
