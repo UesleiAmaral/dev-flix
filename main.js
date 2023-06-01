@@ -34,6 +34,13 @@ export const createElement = (element) => {
 	return element;
 
 };
+
+createElement(filmes.results);
+buttonsPage.buttonTrailer();
+buttonsPage.buttonClose();
+
+
+
 const menu = document.querySelectorAll('.search');
 
 const now_Playing = await connection(page, 'now_playing');
@@ -119,4 +126,22 @@ elementHTML.buttonPageEnd.addEventListener('click', (e) => {
 
 
 
-createElement(filmes.results);
+const menuHamburger = document.getElementById('checkbox-menu');
+
+const buttonHB = document.querySelectorAll('.button-hb');
+const navHamburguer = document.querySelector('.nav-bar-hamburguer');
+
+
+menuHamburger.addEventListener('click', () => {
+  navHamburguer.classList.toggle('display-none');
+});
+
+
+buttonHB.forEach((button) => {
+  button.addEventListener('click', () => {
+    navHamburguer.classList.toggle('display-none');
+
+    menuHamburger.checked = false;
+  });
+
+});

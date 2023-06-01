@@ -3,7 +3,7 @@ const baseURL = `https://api.themoviedb.org/3/movie/`;
 
 export const connection = async (page, category) => {
 
-  const url = `${baseURL}${category}?api_key=${key}&language=en-US&page=${page}`;
+  const url = `${baseURL}${category}?api_key=${key}&language=pt-BR&page=${page}`;
 
   const endpoint = fetch(url)
   .then(response => response.json())

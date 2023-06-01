@@ -71,7 +71,7 @@ export const buttonsPage = {
 
       btn.addEventListener('click', async (e) => {
         e.preventDefault();
-
+        
         const id = btn.parentNode.parentNode.id;
 
         const urlTrailer = await moviesTrailers(id);
